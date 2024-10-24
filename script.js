@@ -49,7 +49,7 @@ async function lookUpWord(checkThis) {
       }
     }
 
-    // Accessing API Json and logging it
+    // Accessing API Json if fetching is OK and logging it
     const getJson = await getApi.json();
     console.log(getJson);
 
