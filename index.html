@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My dictionary</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div id="timeAndDate">
+      <div id="time"></div>
+      <div id="date"></div>
+    </div>
+    <div id="mainContainer">
+      <div id="searchDiv">
+        <h2>Look up word:</h2>
+        <input type="text" id="searchWord" />
+        <label for="searchWord"
+          ><button id="searchButton">Search</button>
+        </label>
+      </div>
+
+      <div id="wordDef">
+        <div id="word">
+          <h3>Word</h3>
+          <p id="thisWord"></p>
+        </div>
+
+        <div id="phonetics">
+          <h3>Phonetic</h3>
+          <p id="thisPhonetic"></p>
+        </div>
+
+        <div id="meaning">
+          <h3>Definition</h3>
+          <p id="thisMeaning"></p>
+          <p id="thisDefinition"></p>
+        </div>
+
+        <div id="Synonyms">
+          <h3>Synonyms</h3>
+          <p id="thisSynonyms"></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
