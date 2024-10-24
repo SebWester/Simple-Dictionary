@@ -14,6 +14,9 @@ let synonyms = document.getElementById("thisSynonyms");
 function getSearchedWord() {
   let searchedWord = document.getElementById("searchWord").value;
   notFound.style.display = "none";
+  if (searchedWord === "") {
+    return;
+  }
 
   lookUpWord(searchedWord);
 }
