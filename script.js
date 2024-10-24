@@ -1,6 +1,7 @@
 // Make my own dictionary
 const serachBar = document.getElementById("searchWord");
 const searchBtn = document.getElementById("searchButton");
+const notFound = document.getElementById("notFound");
 
 // All paragraphs to fill with text
 let word = document.getElementById("thisWord");
@@ -12,8 +13,9 @@ let synonyms = document.getElementById("thisSynonyms");
 // Get text from the text input
 function getSearchedWord() {
   let searchedWord = document.getElementById("searchWord").value;
+  notFound.style.display = "none";
 
-  lookUpDef(searchedWord);
+  lookUpWord(searchedWord);
 }
 
 // Search word when clicked
@@ -27,12 +29,25 @@ serachBar.addEventListener("keypress", function (e) {
 });
 
 // Fetching info
-async function lookUpDef(checkThis) {
+async function lookUpWord(checkThis) {
   try {
     // Fetching API
     const getApi = await fetch(
       `https://api.dictionaryapi.dev/api/v2/entries/en/${checkThis}`
     );
+
+    // Check if we're getteing a 404 message
+    if (!getApi.ok) {
+      if (getApi.status === 404) {
+        word.textContent = "";
+        phonetic.textContent = "";
+        definition.textContent = "";
+        meaning.textContent = "";
+        synonyms.textContent = "";
+        notFound.style.display = "block";
+        return;
+      }
+    }
 
     // Accessing API Json and logging it
     const getJson = await getApi.json();
